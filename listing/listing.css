@@ -1,6 +1,24 @@
 body{
-    margin:auto
+    margin: auto;
 }
+
+.bi{
+    font-size: 42px;
+    cursor: pointer;
+    position: absolute;
+    top: 43%;
+    margin-left:10%;
+    transform: translate(-50%, -50%);
+   color: #f39c12;;
+}
+
+.bi-moon{
+    color: white;
+
+}
+
+
+
 .navbar{
     display: flex;
     justify-content: space-between;
@@ -89,8 +107,7 @@ li{
 }
 .category li >a{
   text-decoration:none;
-  color:black;
-   
+  color:#4d9273
   
 }
 
@@ -114,7 +131,7 @@ li{
 .imgdiv{
     
     height:405px;
-    border:0.5px solid black;
+    border:0.5px solid #4d9273;
     width:300px;
     margin-left:2%;
     border-radius: 4px;
@@ -131,7 +148,8 @@ li{
     height: 136px;
     width: 136px;
    margin-left: 85px;
-   margin-top:3%
+   margin-top:3%;
+  
 }
 
 .heading{
