@@ -1,4 +1,3 @@
-
 const toggle = document.getElementById('toggleDark');
 const body = document.querySelector('body');
 
@@ -14,3 +13,12 @@ toggle.addEventListener('click', function(){
         body.style.transition = '2s';
     }
 });
+
+
+function loadCoupon(){
+    document.getElementById('coupon').style.visibility = 'visible'
+}
+
+function closeCoupon(){
+    document.getElementById('coupon').style.visibility = 'hidden'
+}
