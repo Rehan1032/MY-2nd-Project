@@ -25,59 +25,60 @@
         <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
-        
- 
+
+
         </form>
-        
+
       </div>
-      
+
     </div>
 
     <div id="geo">
       <!-- <button onclick="geolocation()">Get location</button> -->
       <!-- <span id="out"></span> -->
-    <span id="weatherOut"></span>
-    <script>
-      let x = document.getElementById('out');
-      let y = document.getElementById('weatherOut');
-  
-  
-  
-      function geolocation() {
-  
+      <span id="weatherOut"></span>
+      <script>
+        let x = document.getElementById('out');
+        let y = document.getElementById('weatherOut');
+
+
+
+        function geolocation() {
+
           if (navigator.geolocation) {
-              navigator.geolocation.getCurrentPosition(showPosition)
+            navigator.geolocation.getCurrentPosition(showPosition)
           } else {
-              x.innerText = "Geo Not Supported"
+            x.innerText = "Geo Not Supported"
           }
-      }
-  
-      function showPosition(data) {
+        }
+
+        function showPosition(data) {
           console.log(data)
           let latitude = data.coords.latitude;
           let longitude = data.coords.longitude;
           const url =
-              `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${latitude}&lon=${longitude}&mode=json&units=metric&cnt=5&appid=fbf712a5a83d7305c3cda4ca8fe7ef29`
-               //api calling
-               fetch(url,{method:'GET'})
-                //return promise
-              .then((res) => res.json())
-              .then((data) => {
-                  console.log(data)
-                  let cityName = data.city.name
-                  let temp = data.list[0].temp.day
-                  y.innerText = `Your City is ${cityName} and temp is ${temp} °C`
-              })
-  
+            `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${latitude}&lon=${longitude}&mode=json&units=metric&cnt=5&appid=fbf712a5a83d7305c3cda4ca8fe7ef29`
+          //api calling
+          fetch(url, {
+              method: 'GET'
+            })
+            //return promise
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data)
+              let cityName = data.city.name
+              let temp = data.list[0].temp.day
+              y.innerText = `Your City is ${cityName} and temp is ${temp} °C`
+            })
+
           // x.innerText = `Latitude is ${latitude} and Longitude is ${longitude}`;
-      }
-    
-  </script>
+        }
+      </script>
 
 
     </div>
 
-   
+
     <ul class="navitems">
       <li class="navitem1"> <i class="far fa-user"></i> Sign In / Register</li>
 
@@ -89,12 +90,14 @@
   </nav>
   <div id="bd">
     <div class="category">
+
+
       <li class="rb"> <a href="listing/listing.html"> Dmart Grocery </a> </li>
       <li> <a href="listing/listing.html"> Cookware & Serveware </a> </li>
       <li> <a href="listing/listing.html"> Fruits & Vegetables </a> </li>
       <li> <a href="listing/listing.html"> Kitchen Appliances </a> </li>
 
-   
+
     </div>
   </div>
 </header>
@@ -143,8 +146,21 @@
     </button>
   </div>
 
-  <!----- cards section--------->
 
+
+ <!----- -----Dynamic drop-down--------->
+
+ <div class="dropdown">
+  <select  id="categories" onChange="getProduct()">
+      <option>------ Category------</option>
+      
+  </select>
+  <select id="restSelect">
+      <option>------Product------</option>
+  </select>
+</div>
+
+  <!----- -----cards section--------->
 
   <div id="container">
 
@@ -283,11 +299,16 @@
     window.onload = loadCoupon()
   </script>
 
-   
+
+
+  <script>
+    window.onload = geolocation();
+  </script>
 
 <script>
-window.onload=geolocation();
+  window.onload = getCategory()
 </script>
+
 
 </body>
 

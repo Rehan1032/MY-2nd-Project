@@ -4,6 +4,24 @@ body {
 
 }
 
+.dropdown{
+    height:45px;
+    width:40%;
+    margin-top:2%;
+    margin-left:29%;
+    
+}
+    
+  select{
+    height:45px;
+    width:49%;
+    font-size:20px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+   font-weight: 630;
+    
+    }
+
 #geo{
     height: 47px;
     width: 18%;
